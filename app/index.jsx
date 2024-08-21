@@ -6,9 +6,18 @@ import {Redirect, router} from 'expo-router';
 import CustomButton from "@/components/CustomButton";
 import { images } from "@/constants";
 
+//context/provider
+import { useGlobalContext } from "@/context/GlobalProvider";
+
 export default function Welcome() {
+  const {isLoading, isLoggedIn} = useGlobalContext();
+
+  if(!isLoading && isLoggedIn){
+    return <Redirect href="/home" />
+  }
+
   return (
-    <SafeAreaView className="h-full bg-background">
+    <SafeAreaView className="h-full bg-black">
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       >
@@ -28,19 +37,21 @@ export default function Welcome() {
             </Text>
           </View>
           
-          <Text className="font-psemibold text-base text-gray-700">
+          <Text className="font-psemibold text-base text-gray-400">
             Blend Your Day with Freshness!
           </Text>
 
           <CustomButton 
             title="Explore Flavors"
-            handlePress={() => {}}
+            handlePress={() => {
+              router.push('/sign_in');
+            }}
             containerStyles="w-full mt-6"
           />  
         </View>
       </ScrollView>
 
-      <StatusBar backgroundColor="#F0E2EA" style="dark"/>
+      <StatusBar backgroundColor="black" style="light"/>
     </SafeAreaView>
   );
 }

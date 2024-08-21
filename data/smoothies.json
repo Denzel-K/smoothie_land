@@ -1,62 +1,64 @@
 [
-  {
-      "flavor": "Strawberry Banana",
-      "ingredients": ["Strawberries", "Banana", "Greek Yogurt", "Honey", "Almond Milk"],
-      "price": 5.99,
-      "image": ""
-  },
-  {
-      "flavor": "Mango Pineapple",
-      "ingredients": ["Mango", "Pineapple", "Coconut Milk", "Chia Seeds"],
-      "price": 6.49,
-      "image": ""
-  },
-  {
-      "flavor": "Berry Blast",
-      "ingredients": ["Blueberries", "Raspberries", "Blackberries", "Spinach", "Apple Juice"],
-      "price": 6.99,
-      "image": ""
-  },
-  {
-      "flavor": "Green Detox",
-      "ingredients": ["Kale", "Spinach", "Apple", "Cucumber", "Ginger", "Lemon Juice"],
-      "price": 7.49,
-      "image": ""
-  },
-  {
-      "flavor": "Tropical Paradise",
-      "ingredients": ["Pineapple", "Mango", "Banana", "Coconut Water"],
-      "price": 6.79,
-      "image": ""
-  },
-  {
-      "flavor": "Peanut Butter Banana",
-      "ingredients": ["Banana", "Peanut Butter", "Almond Milk", "Cocoa Powder", "Honey"],
-      "price": 6.29,
-      "image": ""
-  },
-  {
-      "flavor": "Chocolate Avocado",
-      "ingredients": ["Avocado", "Cocoa Powder", "Banana", "Honey", "Almond Milk"],
-      "price": 7.19,
-      "image": ""
-  },
-  {
-      "flavor": "Pina Colada",
-      "ingredients": ["Pineapple", "Coconut Cream", "Banana", "Coconut Milk"],
-      "price": 6.89,
-      "image": ""
-  },
-  {
-      "flavor": "Matcha Green Tea",
-      "ingredients": ["Matcha Powder", "Banana", "Spinach", "Almond Milk", "Honey"],
-      "price": 7.29,
-      "image": ""
-  },
-  {
-      "flavor": "Orange Dream",
-      "ingredients": ["Orange", "Carrot", "Greek Yogurt", "Honey", "Almond Milk"],
-      "price": 6.59,
-      "image": ""
-  }
-]
+    {
+        "id": "1",
+        "flavor": "Strawberry Banana",
+        "ingredients": ["Strawberries", "Banana", "Greek Yogurt", "Honey", "Almond Milk"],
+        "price": 5.99
+    },
+    {
+        "id": "2",
+        "flavor": "Mango Pineapple",
+        "ingredients": ["Mango", "Pineapple", "Coconut Milk", "Chia Seeds"],
+        "price": 6.49
+    },
+    {
+        "id": "3",
+        "flavor": "Berry Blast",
+        "ingredients": ["Blueberries", "Raspberries", "Blackberries", "Spinach", "Apple Juice"],
+        "price": 6.99
+    },
+    {
+        "id": "4",
+        "flavor": "Green Detox",
+        "ingredients": ["Kale", "Spinach", "Apple", "Cucumber", "Ginger", "Lemon Juice"],
+        "price": 7.49,
+        "image": "../assets/smoothiePics/Green Detox.jpeg"
+    },
+    {
+        "id": "5",
+        "flavor": "Tropical Paradise",
+        "ingredients": ["Pineapple", "Mango", "Banana", "Coconut Water"],
+        "price": 6.79
+    },
+    {
+        "id": "6",
+        "flavor": "Peanut Butter Banana",
+        "ingredients": ["Banana", "Peanut Butter", "Almond Milk", "Cocoa Powder", "Honey"],
+        "price": 6.29
+    },
+    {
+        "id": "7",
+        "flavor": "Chocolate Avocado",
+        "ingredients": ["Avocado", "Cocoa Powder", "Banana", "Honey", "Almond Milk"],
+        "price": 7.19
+    },
+    {
+        "id": "8",
+        "flavor": "Pina Colada",
+        "ingredients": ["Pineapple", "Coconut Cream", "Banana", "Coconut Milk"],
+        "price": 6.89
+    },
+    {
+        "id": "9",
+        "flavor": "Matcha Green Tea",
+        "ingredients": ["Matcha Powder", "Banana", "Spinach", "Almond Milk", "Honey"],
+        "price": 7.29
+    },
+    {
+        "id": "10",
+        "flavor": "Orange Dream",
+        "ingredients": ["Orange", "Carrot", "Greek Yogurt", "Honey", "Almond Milk"],
+        "price": 6.59
+    }
+  ]
+  
