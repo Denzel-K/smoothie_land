@@ -9,7 +9,7 @@ const TabIcon = ({IconComponent, color, name, focused}) => {
   return (
     <View className="flex items-center justify-center gap-1">
       <IconComponent width={24} height={24} fill={color} />
-      <Text className={`text-gray-400 ${focused ? 'font-psemibold text-blue-300' : 'font-pregular'} text-xs`}>
+      <Text className={`text-gray-500 ${focused ? 'font-psemibold text-blue-400' : 'font-pregular'} text-xs`}>
         {name}
       </Text>
     </View>

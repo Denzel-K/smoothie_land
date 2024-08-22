@@ -83,10 +83,18 @@ const Home = () => {
         )}
         ListHeaderComponent={() => (
           <>
-            <View className="mb-6">
-              <Text className="text-xl font-psemibold text-blue-300 mb-4 ml-1">Smoothie flavors</Text>
+            <View className="mb-4">
+              {/* <Text className="text-xl font-psemibold text-blue-300 mb-4 ml-1">Smoothie flavors</Text> */}
+              <View className="flex flex-row align-middle justify-center items-center">
+                <Text className="text-2xl font-pbold text-gradientStart">
+                  Smoothie
+                </Text>
+                <Text className="text-2xl font-pbold text-gradientEnd">
+                  Land
+                </Text>
+              </View>
 
-              <SearchInput />
+              {/* <SearchInput /> */}
 
               <Filters onFilterChange={handleFilterChange} />
             </View>
