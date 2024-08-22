@@ -1,12 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image, Alert } from "react-native";
 import {Redirect, router} from 'expo-router';
 
-//import { icons } from "@/constants";
 import CartAdd from '@/assets/icons/cart-add.svg';
 import images from "@/data/imageMapping";
 
-const SmoothieCard = ({ flavor, ingredients, price}) => {
+const SmoothieCard = React.memo(({ flavor, ingredients, price}) => {
   const imageSource = images[flavor];
 
   return (
@@ -44,6 +43,6 @@ const SmoothieCard = ({ flavor, ingredients, price}) => {
       </View>
     </View>
   );
-}
+})
 
 export default SmoothieCard;

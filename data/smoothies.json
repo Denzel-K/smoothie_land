@@ -3,62 +3,220 @@
         "id": "1",
         "flavor": "Strawberry Banana",
         "ingredients": ["Strawberries", "Banana", "Greek Yogurt", "Honey", "Almond Milk"],
-        "price": 5.99
+        "price": 5.99,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Low-Calorie", "High-Fiber"],
+        "benefits": ["Energy-Boosting", "Immune-Boosting"],
+        "flavorProfile": ["Sweet"],
+        "imageId": "F_001"
     },
     {
         "id": "2",
         "flavor": "Mango Pineapple",
         "ingredients": ["Mango", "Pineapple", "Coconut Milk", "Chia Seeds"],
-        "price": 6.49
+        "price": 6.49,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["High-Fiber"],
+        "benefits": ["Energy-Boosting", "Digestive Health"],
+        "flavorProfile": ["Sweet", "Tangy"],
+        "imageId": "F_002"
     },
     {
         "id": "3",
         "flavor": "Berry Blast",
         "ingredients": ["Blueberries", "Raspberries", "Blackberries", "Spinach", "Apple Juice"],
-        "price": 6.99
+        "price": 6.99,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Antioxidant-Rich", "Low-Calorie"],
+        "benefits": ["Detoxifying", "Immune-Boosting"],
+        "flavorProfile": ["Sweet", "Tangy"],
+        "imageId": "F_003"
     },
     {
         "id": "4",
         "flavor": "Green Detox",
         "ingredients": ["Kale", "Spinach", "Apple", "Cucumber", "Ginger", "Lemon Juice"],
         "price": 7.49,
-        "image": "../assets/smoothiePics/Green Detox.jpeg"
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Low-Calorie", "High-Fiber"],
+        "benefits": ["Detoxifying", "Anti-Inflammatory"],
+        "flavorProfile": ["Savory", "Tangy"],
+        "imageId": "F_004"
     },
     {
         "id": "5",
         "flavor": "Tropical Paradise",
         "ingredients": ["Pineapple", "Mango", "Banana", "Coconut Water"],
-        "price": 6.79
+        "price": 6.79,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Hydrating", "High-Fiber"],
+        "benefits": ["Energy-Boosting", "Digestive Health"],
+        "flavorProfile": ["Sweet"],
+        "imageId": "F_005"
     },
     {
         "id": "6",
         "flavor": "Peanut Butter Banana",
         "ingredients": ["Banana", "Peanut Butter", "Almond Milk", "Cocoa Powder", "Honey"],
-        "price": 6.29
+        "price": 6.29,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["High-Protein", "High-Fiber"],
+        "benefits": ["Muscle Recovery", "Energy-Boosting"],
+        "flavorProfile": ["Sweet", "Savory"],
+        "imageId": "F_006"
     },
     {
         "id": "7",
         "flavor": "Chocolate Avocado",
         "ingredients": ["Avocado", "Cocoa Powder", "Banana", "Honey", "Almond Milk"],
-        "price": 7.19
+        "price": 7.19,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Healthy Fats", "High-Fiber"],
+        "benefits": ["Skin Health", "Energy-Boosting"],
+        "flavorProfile": ["Sweet", "Savory"],
+        "imageId": "F_007"
     },
     {
         "id": "8",
         "flavor": "Pina Colada",
         "ingredients": ["Pineapple", "Coconut Cream", "Banana", "Coconut Milk"],
-        "price": 6.89
+        "price": 6.89,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Hydrating", "High-Fiber"],
+        "benefits": ["Energy-Boosting", "Digestive Health"],
+        "flavorProfile": ["Sweet"],
+        "imageId": "F_008"
     },
     {
         "id": "9",
         "flavor": "Matcha Green Tea",
         "ingredients": ["Matcha Powder", "Banana", "Spinach", "Almond Milk", "Honey"],
-        "price": 7.29
+        "price": 7.29,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Antioxidant-Rich", "Low-Calorie"],
+        "benefits": ["Energy-Boosting", "Detoxifying"],
+        "flavorProfile": ["Savory"],
+        "imageId": "F_009"
     },
     {
         "id": "10",
         "flavor": "Orange Dream",
         "ingredients": ["Orange", "Carrot", "Greek Yogurt", "Honey", "Almond Milk"],
-        "price": 6.59
+        "price": 6.59,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["High-Fiber", "Low-Calorie"],
+        "benefits": ["Immune-Boosting", "Eye Health"],
+        "flavorProfile": ["Sweet", "Tangy"],
+        "imageId": "F_010"
+    },
+    {
+        "id": "11",
+        "flavor": "Raspberry Lemonade",
+        "ingredients": ["Raspberries", "Lemon Juice", "Honey", "Greek Yogurt", "Almond Milk"],
+        "price": 6.79,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Low-Calorie", "High-Fiber"],
+        "benefits": ["Immune-Boosting", "Digestive Health"],
+        "flavorProfile": ["Tangy", "Sweet"],
+        "imageId": "F_020"
+    },
+    {
+        "id": "12",
+        "flavor": "Blueberry Almond Bliss",
+        "ingredients": ["Blueberries", "Almond Butter", "Greek Yogurt", "Banana", "Almond Milk"],
+        "price": 6.99,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Antioxidant-Rich", "High-Protein"],
+        "benefits": ["Brain Health", "Muscle Recovery"],
+        "flavorProfile": ["Nutty", "Sweet"],
+        "imageId": "F_012"
+    },
+    {
+        "id": "13",
+        "flavor": "Avocado Mint Fusion",
+        "ingredients": ["Avocado", "Mint", "Spinach", "Cucumber", "Coconut Water"],
+        "price": 7.49,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Healthy Fats", "Hydrating"],
+        "benefits": ["Skin Health", "Detoxifying"],
+        "flavorProfile": ["Fresh", "Savory"],
+        "imageId": "F_013"
+    },
+    {
+        "id": "14",
+        "flavor": "Papaya Ginger Zest",
+        "ingredients": ["Papaya", "Ginger", "Lime", "Honey", "Coconut Milk"],
+        "price": 6.89,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Low-Calorie", "Digestive Enzymes"],
+        "benefits": ["Digestive Health", "Anti-Inflammatory"],
+        "flavorProfile": ["Tangy", "Sweet"],
+        "imageId": "F_014"
+    },
+    {
+        "id": "15",
+        "flavor": "Pumpkin Spice Latte",
+        "ingredients": ["Pumpkin Puree", "Banana", "Cinnamon", "Nutmeg", "Almond Milk"],
+        "price": 7.29,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["High-Fiber", "Vitamin-Rich"],
+        "benefits": ["Immune-Boosting", "Energy-Boosting"],
+        "flavorProfile": ["Spiced", "Sweet"],
+        "imageId": "F_015"
+    },
+    {
+        "id": "16",
+        "flavor": "Beetroot Berry Boost",
+        "ingredients": ["Beetroot", "Strawberries", "Greek Yogurt", "Honey", "Apple Juice"],
+        "price": 7.39,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Antioxidant-Rich", "High-Fiber"],
+        "benefits": ["Heart Health", "Energy-Boosting"],
+        "flavorProfile": ["Earthy", "Sweet"],
+        "imageId": "F_016"
+    },
+    {
+        "id": "17",
+        "flavor": "Citrus Kale Refresh",
+        "ingredients": ["Kale", "Orange", "Pineapple", "Ginger", "Lemon Juice"],
+        "price": 6.99,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["Low-Calorie", "Vitamin C-Rich"],
+        "benefits": ["Detoxifying", "Immune-Boosting"],
+        "flavorProfile": ["Tangy", "Savory"],
+        "imageId": "F_017"
+    },
+    {
+        "id": "18",
+        "flavor": "Tropical Green Tea",
+        "ingredients": ["Green Tea", "Mango", "Spinach", "Honey", "Coconut Water", "Pineapple"],
+        "price": 7.59,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Antioxidant-Rich", "Low-Calorie"],
+        "benefits": ["Metabolism Boosting", "Energy-Boosting"],
+        "flavorProfile": ["Fresh", "Sweet"],
+        "imageId": "F_018"
+    },
+    {
+        "id": "19",
+        "flavor": "Spicy Carrot Mango",
+        "ingredients": ["Carrot", "Mango", "Cayenne Pepper", "Ginger", "Orange Juice"],
+        "price": 6.89,
+        "mainIngredient": "Vegetable",
+        "nutritionalContent": ["High-Fiber", "Vitamin A-Rich"],
+        "benefits": ["Eye Health", "Anti-Inflammatory"],
+        "flavorProfile": ["Spicy", "Sweet"],
+        "imageId": "F_019"
+    },
+    {
+        "id": "20",
+        "flavor": "Blackberry Basil Bliss",
+        "ingredients": ["Blackberries", "Basil", "Banana", "Honey", "Almond Milk"],
+        "price": 6.99,
+        "mainIngredient": "Fruit",
+        "nutritionalContent": ["Antioxidant-Rich", "Low-Calorie"],
+        "benefits": ["Heart Health", "Skin Health"],
+        "flavorProfile": ["Herbal", "Sweet"],
+        "imageId": "F_020"
     }
-  ]
-  
+]

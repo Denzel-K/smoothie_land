@@ -13,16 +13,19 @@ import smoothiesData from '@/data/smoothies.json';
 
 //context/provider
 import { useGlobalContext } from '@/context/GlobalProvider';
+import Filters from '@/components/Filters';
 
 const Home = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [smoothies, setSmoothies] = useState([]);
+  const [filteredSmoothies, setFilteredSmoothies] = useState([]);
 
   const { user } = useGlobalContext();
 
-  async function fetchSmoothies(){
+  async function fetchSmoothies() {
     try {
       setSmoothies(smoothiesData);
+      setFilteredSmoothies(smoothiesData); // Initialize with all data
     } catch (error) {
       Alert.alert("Fetch error:", "Unable to fetch smoothies");
     }
@@ -38,33 +41,63 @@ const Home = () => {
     setRefreshing(false);
   };
 
+  const handleFilterChange = (filters) => {
+    let filtered = smoothies;
+
+    if (filters.mainIngredient) {
+      filtered = filtered.filter((smoothie) => smoothie.mainIngredient === filters.mainIngredient);
+    }
+
+    if (filters.nutritionalContent.length > 0) {
+      filtered = filtered.filter((smoothie) =>
+        filters.nutritionalContent.every((content) => smoothie.nutritionalContent.includes(content))
+      );
+    }
+
+    if (filters.benefits.length > 0) {
+      filtered = filtered.filter((smoothie) =>
+        filters.benefits.every((benefit) => smoothie.benefits.includes(benefit))
+      );
+    }
+
+    if (filters.flavorProfile.length > 0) {
+      filtered = filtered.filter((smoothie) =>
+        filters.flavorProfile.every((f_Profile) => smoothie.flavorProfile.includes(f_Profile))
+      );
+    }
+
+    setFilteredSmoothies(filtered);
+  };
 
   return (
     <SafeAreaView className="bg-black h-full pt-6 px-4">
-      <FlatList 
-        data={smoothies}
+      <FlatList
+        data={filteredSmoothies}
         keyExtractor={(item) => item.id}
-        renderItem={({item}) => (
-          <SmoothieCard 
+        renderItem={({ item }) => (
+          <SmoothieCard
             flavor={item.flavor}
             price={item.price}
             ingredients={item.ingredients}
           />
         )}
         ListHeaderComponent={() => (
-          <View className="mb-6">
-            <Text className="text-xl font-psemibold text-blue-300 mb-4 ml-1">Smoothie flavors</Text>
+          <>
+            <View className="mb-6">
+              <Text className="text-xl font-psemibold text-blue-300 mb-4 ml-1">Smoothie flavors</Text>
 
-            <SearchInput />
-          </View>
+              <SearchInput />
+
+              <Filters onFilterChange={handleFilterChange} />
+            </View>
+          </>
         )}
-
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
 
-      <StatusBar backgroundColor="black" style="light"/>
+      <StatusBar backgroundColor="black" style="light" />
     </SafeAreaView>
-  )
+  );
 }
 
 export default Home;
