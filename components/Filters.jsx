@@ -54,7 +54,7 @@ const Filters = ({ onFilterChange }) => {
   return (
     <View className="flex flex-col align-middle justify-center items-center mt-2 bg-gray-900 p-2 rounded-xl">
       <View className="w-full flex flex-row align-middle justify-between items-center">
-        <Text className="text-base font-psemibold text-blue-400">Filters</Text>
+        <Text className="text-base font-psemibold text-blue-400">Flavors</Text>
         <TouchableOpacity
           activeOpacity={0.7}
           className="w-[28px] h-[28px] flex items-center justify-center align-middle bg-price rounded-lg"

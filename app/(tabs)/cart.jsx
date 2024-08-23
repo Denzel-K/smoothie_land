@@ -6,6 +6,7 @@ import {router} from 'expo-router';
 
 import Draft from "@/assets/icons/draft.svg";
 import Minus from '@/assets/icons/minus.svg';
+import Info from '@/assets/icons/info.svg';
 import { images } from "@/constants";
 import CustomButton from '@/components/CustomButton';
 
@@ -16,6 +17,7 @@ import {createOrder} from '@/lib/appwrite';
 const Cart = () => {
   const { cartItems, total, removeFromCart, clearCart } = useContext(CartContext);
   const { user } = useGlobalContext();
+  const { refreshTransactions } = useGlobalContext();
 
   const handlePlaceOrder = async () => {
     try {
@@ -30,6 +32,7 @@ const Cart = () => {
 
       if (response) {
         Alert.alert("Success", "Order placed successfully!");
+        refreshTransactions();
         clearCart();
       }
     } 
@@ -38,13 +41,12 @@ const Cart = () => {
     }
   };
 
-
   return (
     <SafeAreaView className="h-full bg-black">
       <ScrollView
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'start' }}
       >
-        <View className="w-full flex justify-center items-center pt-6 pb-12 px-4">
+        <View className="w-full flex justify-center items-center pt-6 pb-4 px-4">
           <Text className="text-2xl text-price font-psemibold">My Cart</Text>
 
           <View className="w-full flex flex-col align-middle justify-start rounded-xl bg-gray-900 mt-8 pt-4 pb-2 px-2">
@@ -80,7 +82,7 @@ const Cart = () => {
                 <View className="mt-6 px-2 border-t-2 border-gray-900 pt-2">
                   <View className="w-full flex flex-row align-middle justify-between items-center">
                     <Text className="text-base font-pbold text-gray-400">Total</Text>
-                    <Text className="text-base font-pbold text-gray-300">${total.toFixed(2)}</Text>
+                    <Text className="text-base font-pbold text-gray-300">${total}</Text>
                   </View>
                 </View>
 
@@ -104,6 +106,11 @@ const Cart = () => {
             {cartItems.length !== 0 && (
               <Text className="text-xs text-center font-psemibold text-gradientEnd mt-4">Note: This draft will be deleted in 12hrs</Text>
             )}
+          </View>
+
+          <View className="w-full flex flex-row align-middle justify-between items-center bg-gray-950 py-2 px-2 mt-2 rounded-xl">
+            <Info width={24} height={24} />
+            <Text className="text-xs text-purple-300 font-p-semibold">Go to your profile to see transaction history.</Text>
           </View>
         </View>
       </ScrollView>

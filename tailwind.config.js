@@ -10,7 +10,8 @@ module.exports = {
         gradientEnd: '#e01a45',
         price : '#32E4C6',
         btnAdd : '#00b7d5',
-        title: '#eaecdf'
+        title: '#eaecdf',
+        minus: '#FF3864'
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],

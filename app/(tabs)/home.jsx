@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 //components
 import SmoothieCard from '@/components/SmoothieCard';
-import SearchInput from '@/components/SearchInput';
+// import SearchInput from '@/components/SearchInput';
 
 //data sample (local testing)
 import smoothiesData from '@/data/smoothies.json';
