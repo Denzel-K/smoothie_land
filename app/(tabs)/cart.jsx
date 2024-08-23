@@ -1,51 +1,43 @@
-import { View, Text, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image, Alert } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useContext } from 'react';
+import {router} from 'expo-router';
 
 import Draft from "@/assets/icons/draft.svg";
 import Minus from '@/assets/icons/minus.svg';
+import { images } from "@/constants";
 import CustomButton from '@/components/CustomButton';
 
+import { CartContext } from "@/context/CartProvider";
+import { useGlobalContext } from '@/context/GlobalProvider';
+import {createOrder} from '@/lib/appwrite';
+
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [total, setTotal] = useState(0);
+  const { cartItems, total, removeFromCart, clearCart } = useContext(CartContext);
+  const { user } = useGlobalContext();
 
-  useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        const cart = JSON.parse(await AsyncStorage.getItem('cart')) || [];
-        const validCart = cart.filter(item => {
-          const diff = (new Date().getTime() - item.timestamp) / 1000 / 3600;
-          return diff < 24;
-        });
-        
-        if (validCart.length !== cart.length) {
-          await AsyncStorage.setItem('cart', JSON.stringify(validCart));
-        }
-        
-        setCartItems(validCart);
-        setTotal(validCart.reduce((sum, item) => sum + item.price, 0));
-      } catch (error) {
-        Alert.alert("Error", "Unable to fetch cart items");
-      }
-    };
-
-    fetchCartItems();
-  }, []);
-
-  const removeItemFromCart = async (flavorToRemove) => {
+  const handlePlaceOrder = async () => {
     try {
-      const cart = JSON.parse(await AsyncStorage.getItem('cart')) || [];
-      const updatedCart = cart.filter(item => item.flavor !== flavorToRemove);
-      await AsyncStorage.setItem('cart', JSON.stringify(updatedCart));
-      setCartItems(updatedCart);
-      setTotal(updatedCart.reduce((sum, item) => sum + item.price, 0));
-    } catch (error) {
-      Alert.alert("Error", "Unable to remove item from cart");
+      if (!user) {
+        Alert.alert("Error", "You need to be logged in to place an order.");
+        return;
+      }
+
+      const itemsNoTimestamp = cartItems.map(({ timestamp, ...item }) => item);
+
+      const response = await createOrder(user.$id, itemsNoTimestamp, total);
+
+      if (response) {
+        Alert.alert("Success", "Order placed successfully!");
+        clearCart();
+      }
+    } 
+    catch (error) {
+      Alert.alert("Error", "Failed to place the order. Please try again.");
     }
   };
+
 
   return (
     <SafeAreaView className="h-full bg-black">
@@ -61,49 +53,58 @@ const Cart = () => {
               <Draft width={22} height={22} />
             </View>
 
-            <View className="w-full rounded-xl bg-black pt-4 pb-6 mt-4">
-              <View className="w-full flex flex-row align-middle justify-between items-center border-b-2 border-gray-900 pb-2 px-2">
-                <Text className="text-sm font-pbold text-primary">Item</Text>
-                <Text className="text-sm font-pbold text-primary">Price</Text>
-              </View>
-
-              <View className="mt-4 px-2">
-                {cartItems.map((item, index) => (
-                  <View key={index} className="w-full flex flex-row align-middle justify-between items-center mt-2">
-                    <View className="flex flex-row align-middle justify-start items-center">
-                      <TouchableOpacity
-                        activeOpacity={0.7}
-                        onPress={() => removeItemFromCart(item.flavor)}
-                      >
-                        <Minus width={22} height={22} />
-                      </TouchableOpacity>
-                      <Text className="text-sm font-pregular text-gray-500 ml-2">{item.flavor}</Text>
-                    </View>
-                    <Text className="text-sm font-psemibold text-gray-400">${item.price.toFixed(2)}</Text>
-                  </View>
-                ))}
-              </View>
-
-              <View className="mt-6 px-2 border-t-2 border-gray-950 pt-2">
-                <View className="w-full flex flex-row align-middle justify-between items-center">
-                  <Text className="text-base font-pbold text-gray-400">Total</Text>
-                  <Text className="text-base font-pbold text-gray-300">${total.toFixed(2)}</Text>
+            {cartItems.length !== 0 ? (
+              <View className="w-full rounded-xl bg-gray-950 pt-4 pb-6 mt-4">
+                <View className="w-full flex flex-row align-middle justify-between items-center border-b-2 border-gray-900 pb-2 px-2">
+                  <Text className="text-sm font-pbold text-primary">Item</Text>
+                  <Text className="text-sm font-pbold text-primary">Price</Text>
                 </View>
+
+                <View className="mt-4 px-2">
+                  {cartItems.map((item, index) => (
+                    <View key={index} className="w-full flex flex-row align-middle justify-between items-center mt-2">
+                      <View className="flex flex-row align-middle justify-start items-center">
+                        <TouchableOpacity
+                          activeOpacity={0.7}
+                          onPress={() => removeFromCart(item.flavor)}
+                        >
+                          <Minus width={22} height={22} />
+                        </TouchableOpacity>
+                        <Text className="text-sm font-pregular text-gray-500 ml-2">{item.flavor}</Text>
+                      </View>
+                      <Text className="text-sm font-psemibold text-gray-400">${item.price}</Text>
+                    </View>
+                  ))}
+                </View>
+
+                <View className="mt-6 px-2 border-t-2 border-gray-900 pt-2">
+                  <View className="w-full flex flex-row align-middle justify-between items-center">
+                    <Text className="text-base font-pbold text-gray-400">Total</Text>
+                    <Text className="text-base font-pbold text-gray-300">${total.toFixed(2)}</Text>
+                  </View>
+                </View>
+
+                <CustomButton 
+                  title="Place Order"
+                  handlePress={handlePlaceOrder}
+                  containerStyles="w-[80%] m-auto mt-10 bg-btnAdd"
+                />
+              </View>) : (
+              <View className="w-full rounded-xl bg-gray-950 pt-4 pb-6 mt-4 flex flex-col align-middle justify-center items-center">
+                <Image 
+                  source={images.ShoppingCart}
+                  className="w-[200px] h-[200px]"
+                  resizeMode="contain"
+                />
+                <Text className="text-center text-base font-psemibold text-purple-400 opacity-75">Add items to cart to view draft</Text>
               </View>
+              )
+            }
 
-              <CustomButton 
-                title="Place Order"
-                handlePress={() => {
-                  // Order functionality
-                }}
-                containerStyles="w-[80%] m-auto mt-10 bg-btnAdd"
-              />
-            </View>
+            {cartItems.length !== 0 && (
+              <Text className="text-xs text-center font-psemibold text-gradientEnd mt-4">Note: This draft will be deleted in 12hrs</Text>
+            )}
           </View>
-
-          {cartItems.length !== 0 && (
-            <Text className="text-xs text-center font-psemibold text-gradientEnd mt-4">Note: This draft will be deleted in 24hrs</Text>
-          )}
         </View>
       </ScrollView>
 

@@ -69,7 +69,7 @@ const Filters = ({ onFilterChange }) => {
 
           {/* Main Ingredient Filter */}
           <View className="w-full flex flex-col mt-4">
-            <Text className="text-xs text-primary font-pregular text-left w-full mb-1">Main Ingredient</Text>
+            <Text className="text-xs text-primary font-psemibold text-left w-full mb-1">Main Ingredient</Text>
             <FlatList
               data={['Fruit', 'Vegetable']}
               horizontal
@@ -87,9 +87,9 @@ const Filters = ({ onFilterChange }) => {
 
           {/* Nutritional Content Filter */}
           <View className="w-full flex flex-col mt-4">
-            <Text className="text-xs text-primary font-pregular text-left w-full mb-1">Nutritional Content</Text>
+            <Text className="text-xs text-primary font-psemibold text-left w-full mb-1">Nutritional Content</Text>
             <FlatList
-              data={['Low-Calorie', 'High-Fiber', 'Antioxidant-Rich', 'Healthy Fats']}
+              data={['Low-Calorie', 'High-Fiber', 'Antioxidant-Rich', 'Healthy Fats', 'Hydrating', 'High-Protein', 'Digestive Enzymes']}
               horizontal
               showsHorizontalScrollIndicator={false}
               keyExtractor={(item) => item}
@@ -105,9 +105,9 @@ const Filters = ({ onFilterChange }) => {
 
           {/* Benefits Filter */}
           <View className="w-full flex flex-col mt-4">
-            <Text className="text-xs text-primary font-pregular text-left w-full mb-1">Benefits</Text>
+            <Text className="text-xs text-primary font-psemibold text-left w-full mb-1">Benefits</Text>
             <FlatList
-              data={['Energy-Boosting', 'Immune-Boosting', 'Detoxifying']}
+              data={['Energy-Boosting', 'Immune-Boosting', 'Detoxifying', 'Anti-Inflammatory', 'Skin Health', 'Heart Health', 'Eye Health', 'Brain Health']}
               horizontal
               showsHorizontalScrollIndicator={false}
               keyExtractor={(item) => item}
@@ -123,7 +123,7 @@ const Filters = ({ onFilterChange }) => {
 
           {/* flavorProfile Filter */}
           <View className="w-full flex flex-col mt-4 pb-4">
-            <Text className="text-xs text-primary font-pregular text-left w-full mb-1">Flavor Profile</Text>
+            <Text className="text-xs text-primary font-psemibold text-left w-full mb-1">Flavor Profile</Text>
             <FlatList
               data={["Sweet", "Tangy", "Savory", "Nutty", "Fresh", "Spiced", "Earthy", "Herbal", "Spicy"]}
               horizontal

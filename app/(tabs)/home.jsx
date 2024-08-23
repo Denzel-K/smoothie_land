@@ -11,16 +11,12 @@ import SearchInput from '@/components/SearchInput';
 //data sample (local testing)
 import smoothiesData from '@/data/smoothies.json';
 
-//context/provider
-import { useGlobalContext } from '@/context/GlobalProvider';
 import Filters from '@/components/Filters';
 
 const Home = () => {
   const [refreshing, setRefreshing] = useState(false);
   const [smoothies, setSmoothies] = useState([]);
   const [filteredSmoothies, setFilteredSmoothies] = useState([]);
-
-  const { user } = useGlobalContext();
 
   async function fetchSmoothies() {
     try {
@@ -100,6 +96,9 @@ const Home = () => {
             </View>
           </>
         )}
+        removeClippedSubviews={true} 
+        initialNumToRender={5} 
+        maxToRenderPerBatch={5}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
 

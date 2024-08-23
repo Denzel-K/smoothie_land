@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, Text, TouchableOpacity, Image, Alert } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -6,9 +6,12 @@ import CartAdd from '@/assets/icons/cart-add.svg';
 import Tick from '@/assets/icons/tick.svg';
 import images from "@/data/imageMapping";
 
+import { CartContext } from "@/context/CartProvider";
+
 const SmoothieCard = React.memo(({ flavor, ingredients, price }) => {
   const imageSource = images[flavor];
   const [added, setAdded] = useState(false);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const checkCart = async () => {
@@ -24,22 +27,10 @@ const SmoothieCard = React.memo(({ flavor, ingredients, price }) => {
     checkCart();
   }, [flavor]);
 
-  const handleAddToCart = async () => {
-    try {
-      const cart = JSON.parse(await AsyncStorage.getItem('cart')) || [];
-      const itemExists = cart.some(item => item.flavor === flavor);
-      if (itemExists) {
-        Alert.alert("Item already in cart", "This item is already in your cart.");
-        return;
-      }
-
-      const newItem = { flavor, ingredients, price, timestamp: new Date().getTime() };
-      const updatedCart = [...cart, newItem];
-      await AsyncStorage.setItem('cart', JSON.stringify(updatedCart));
-      setAdded(true);
-    } catch (error) {
-      Alert.alert("Error", "Unable to add item to cart");
-    }
+  const handleAddToCart = () => {
+    const newItem = { flavor, price, timestamp: new Date().getTime() };
+    addToCart(newItem);
+    setAdded(true);
   };
 
   return (

@@ -62,7 +62,7 @@
         "mainIngredient": "Fruit",
         "nutritionalContent": ["High-Protein", "High-Fiber"],
         "benefits": ["Muscle Recovery", "Energy-Boosting"],
-        "flavorProfile": ["Sweet", "Savory"],
+        "flavorProfile": ["Sweet", "Savory", "Nutty"],
         "imageId": "F_006"
     },
     {
