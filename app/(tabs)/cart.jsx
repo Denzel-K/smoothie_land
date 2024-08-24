@@ -25,11 +25,19 @@ const Cart = () => {
         Alert.alert("Error", "You need to be logged in to place an order.");
         return;
       }
-
+  
       const itemsNoTimestamp = cartItems.map(({ timestamp, ...item }) => item);
-
-      const response = await createOrder(user.$id, itemsNoTimestamp, total);
-
+  
+      // Convert total to a number (if it's not already)
+      const numericTotal = parseFloat(total);
+  
+      // Check if the conversion was successful
+      if (isNaN(numericTotal)) {
+        throw new Error("Invalid total amount");
+      }
+  
+      const response = await createOrder(user.$id, itemsNoTimestamp, numericTotal);
+  
       if (response) {
         Alert.alert("Success", "Order placed successfully!");
         refreshTransactions();
@@ -37,7 +45,7 @@ const Cart = () => {
       }
     } 
     catch (error) {
-      Alert.alert("Error", "Failed to place the order. Please try again.");
+      Alert.alert("Error", `Failed to place the order. Please try again. ${error.message}`);
     }
   };
 

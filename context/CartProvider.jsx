@@ -20,11 +20,13 @@ export const CartProvider = ({ children }) => {
       }
     
       setCartItems(validCart);
-      setTotal(validCart.reduce((sum, item) => sum + parseFloat(item.price), 0));
+      setTotal(formatTotal(validCart.reduce((sum, item) => sum + parseFloat(item.price), 0)));
     };
 
     fetchCartItems();
   }, []);
+
+  const formatTotal = (amount) => amount.toFixed(2); // Format total to 2 decimal places
 
   const addToCart = async (newItem) => {
     const cart = JSON.parse(await AsyncStorage.getItem('cart')) || [];
@@ -38,15 +40,17 @@ export const CartProvider = ({ children }) => {
     
     const updatedCart = [...cart, itemWithStringPrice];
     await AsyncStorage.setItem('cart', JSON.stringify(updatedCart));
+    const newTotal = updatedCart.reduce((sum, item) => sum + parseFloat(item.price), 0);
     setCartItems(updatedCart);
-    setTotal(updatedCart.reduce((sum, item) => sum + parseFloat(item.price), 0));
+    setTotal(formatTotal(newTotal));
   };
 
   const removeFromCart = async (flavorToRemove) => {
     const updatedCart = cartItems.filter(item => item.flavor !== flavorToRemove);
     await AsyncStorage.setItem('cart', JSON.stringify(updatedCart));
+    const newTotal = updatedCart.reduce((sum, item) => sum + parseFloat(item.price), 0);
     setCartItems(updatedCart);
-    setTotal(updatedCart.reduce((sum, item) => sum + parseFloat(item.price), 0));
+    setTotal(formatTotal(newTotal));
   };
 
   const clearCart = async () => {

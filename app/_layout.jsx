@@ -6,9 +6,6 @@ import { Stack } from "expo-router";
 import GlobalProvider from "@/context/GlobalProvider";
 import CustomSplashScreen from "@/components/CustomSplashScreen";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-//SplashScreen.preventAutoHideAsync();
-
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -27,33 +24,28 @@ const RootLayout = () => {
   useEffect(() => {
     if (error) throw error;
 
-    if (!fontsLoaded) {
-      setIsSplashVisible(true);
-    }
     if (fontsLoaded) {
-      //SplashScreen.hideAsync();
-      setIsSplashVisible(false);
+      const timeoutId = setTimeout(() => {
+        setIsSplashVisible(false);
+      }, 7500);
+
+      return () => clearTimeout(timeoutId);
     }
-    
   }, [fontsLoaded, error]);
 
   if (isSplashVisible) {
     return <CustomSplashScreen />;
   }
 
-  // if (!fontsLoaded && !error) {
-  //   return null;
-  // }
-
-  return(
+  return (
     <GlobalProvider>
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       </Stack>
-  </GlobalProvider>
+    </GlobalProvider>
   );
-}
+};
 
 export default RootLayout;
