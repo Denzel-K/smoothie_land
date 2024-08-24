@@ -1,4 +1,4 @@
-# Introducing SmoothieLand ![smoothieCup](./assets/images/smoothieCup.png)
+# Introducing SmoothieLand
 
 ![SmoothieLand landing page](./assets/images/readmePic.png)
 
