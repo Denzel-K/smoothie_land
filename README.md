@@ -1,8 +1,10 @@
-# Welcome to your Expo app 👋
+# Introducing SmoothieLand ![smoothieCup](./assets/images/smoothieCup.png)
+
+![SmoothieLand landing page](./assets/images/readmePic.png)
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Get started (Dev mode)
 
 1. Install dependencies
 
@@ -16,35 +18,12 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+To get the .apk build (for android), go to: [smoothieLand.apk](https://expo.dev/artifacts/eas/ehAX2oXvPC7YcuVXuhc1fM.apk).
+*Note that this .apk build is not officially uploaded to any app store; you may therefore encounter challenges while installing it.*
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Should you choose to try it out and then get an error: "App not installed" (on android); then try:
+- Disabling play protect on playstore.
+- Install on SD card.
+- Allow apps downloaded from browser to install.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+If it still won't install, then stay put and keep an eye open for an official one (both android and ios versions).
