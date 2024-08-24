@@ -90,8 +90,6 @@ const Home = () => {
                 </Text>
               </View>
 
-              {/* <SearchInput /> */}
-
               <Filters onFilterChange={handleFilterChange} />
             </View>
           </>

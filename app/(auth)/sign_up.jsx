@@ -15,6 +15,9 @@ import { useGlobalContext } from '@/context/GlobalProvider';
 //Server func's
 import {createUser} from '@/lib/appwrite'
 
+//SVG
+import Register from '@/assets/icons/register.svg';
+
 const SignUp = () => {
   const { setUser, setIsLoggedIn } = useGlobalContext();
 
@@ -52,22 +55,24 @@ const SignUp = () => {
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       >
         <View className="w-full justify-center min-h-[85vh] px-4 my-6">
-          <Text className="text-2xl font-semibold text-btnAdd mt-10 font-psemibold">
-            Create an account
-          </Text>
+          <View className="w-full flex flex-row justify-between align-middle items-center">
+            <Text className="text-3xl text-price font-psemibold">Signup</Text>
+
+            <Register width={32} height={32} />
+          </View>
 
           <FormField
             title="Username"
             value={form.username}
             handleChangeText={(e) => setForm({ ...form, username: e })}
-            otherStyles="mt-10"
+            otherStyles="mt-8"
           />
 
           <FormField
             title="Email"
             value={form.email}
             handleChangeText={(e) => setForm({ ...form, email: e })}
-            otherStyles="mt-7"
+            otherStyles="mt-4"
             keyboardType="email-address"
           />
 
@@ -75,23 +80,23 @@ const SignUp = () => {
             title="Password"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
-            otherStyles="mt-7"
+            otherStyles="mt-4"
           />
 
           <CustomButton
             title="Signup"
             handlePress={handleSubmit}
-            containerStyles="mt-10"
+            containerStyles="mt-6 w-[70%] mx-auto"
             isLoading={submitting}
           />
 
           <View className="flex justify-center pt-5 flex-row gap-2">
-            <Text className="text-base text-gray-100 font-pregular">
+            <Text className="text-base text-gray-400 font-pregular">
               Already have an account?
             </Text>
             <Link
               href="/sign_in"
-              className="text-base font-psemibold text-primary"
+              className="text-base font-psemibold text-primary opacity-75"
             >
               Login
             </Link>

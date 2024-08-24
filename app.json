@@ -1,24 +1,19 @@
 {
   "expo": {
-    "name": "smoothie_land",
-    "slug": "smoothie_land",
+    "name": "smoothieLand",
+    "slug": "smoothieLand",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/foreground.png",
+        "backgroundColor": "#000000"
       },
       "package": "com.mandrilltech.smoothieland"
     },

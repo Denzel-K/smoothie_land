@@ -10,11 +10,7 @@ import { images } from "@/constants";
 import { useGlobalContext } from "@/context/GlobalProvider";
 
 export default function Welcome() {
-  const {isLoading, isLoggedIn} = useGlobalContext();
-
-  if(!isLoading && isLoggedIn){
-    return <Redirect href="/home" />
-  }
+  const { isLoggedIn} = useGlobalContext();
 
   return (
     <SafeAreaView className="h-full bg-black">
@@ -44,7 +40,12 @@ export default function Welcome() {
           <CustomButton 
             title="Explore Flavors"
             handlePress={() => {
-              router.push('/sign_in');
+              if(isLoggedIn){
+                router.push('/home');
+              }
+              else{
+                router.push('/sign_in');
+              }
             }}
             containerStyles="w-full mt-6"
           />  
